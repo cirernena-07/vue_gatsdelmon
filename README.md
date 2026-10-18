@@ -215,6 +215,5 @@ https://github.com/cirernena-07/vue_gatsdelmon
 Projecte desenvolupat per:
 
 - Magdalena Cirer Castillo
-- Júlia Martínez
 
 Activitat de Web Dinàmica.
