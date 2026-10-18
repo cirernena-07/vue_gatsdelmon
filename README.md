@@ -206,7 +206,7 @@ https://github.com/cirernena-07/vue_gatsdelmon
 
 ## Firebase Hosting
 
-AQUÍ_HAS_D'ENGANXAR_LA_TEVA_URL.web.app
+ https://gats-del-mon.web.app
 
 ---
 
