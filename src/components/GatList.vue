@@ -1,11 +1,29 @@
 <script setup>
+import { ref, onMounted } from 'vue'
+import { collection, getDocs } from 'firebase/firestore'
+import { db } from '../firebase'
 import GatCard from './GatCard.vue'
 
-const gats = [
-  { nom: 'Misu', raca: 'Europeu' },
-  { nom: 'Luna', raca: 'Siamès' },
-  { nom: 'Simba', raca: 'Persa' }
-]
+const gats = ref([])
+
+onMounted(async () => {
+  console.log("Entrant")
+
+  try {
+    const querySnapshot = await getDocs(collection(db, 'Gats'))
+
+    console.log("Número de documents:", querySnapshot.size)
+
+    gats.value = querySnapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    }))
+
+    console.log("Dades:", gats.value)
+  } catch (error) {
+    console.error("Error Firebase:", error)
+  }
+})
 </script>
 
 <template>
@@ -14,7 +32,7 @@ const gats = [
 
     <GatCard
       v-for="gat in gats"
-      :key="gat.nom"
+      :key="gat.id"
       :nom="gat.nom"
       :raca="gat.raca"
     />
